@@ -1,7 +1,5 @@
 FROM debian:buster
 
-MAINTAINER Oluwaseun Obajobi "oluwaseun.obajobi@namshi.com"
-
 RUN apt-get update && \
     apt-get install -y exim4-daemon-light && \
     apt-get clean && \
@@ -16,4 +14,4 @@ RUN chmod a+x /bin/entrypoint.sh && \
 
 EXPOSE 25
 ENTRYPOINT ["/bin/entrypoint.sh"]
-CMD ["exim", "-bd", "-q15m"]
+CMD ["exim", "-bdf", "-q15m"]
